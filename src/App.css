@@ -1,48 +1,68 @@
-/* General body styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 body {
-  font-family: Arial, sans-serif; /* Sets the font for the application */
+  font-family: 'Roboto Mono', monospace;
   margin: 0;
   padding: 0;
-  background: #f4f4f4; /* Light grey background */
+  background: #557A95;
+  overflow-x: hidden;
 }
 
-/* Navbar styling */
 nav {
-  background: #333; /* Dark background for the navbar */
-  color: #fff; /* White text color */
-  padding: 10px 20px; /* Padding inside the navbar */
+  background: transparent;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+nav .logo img {
+  height: 200px;
+  margin-left: 50px;
 }
 
 nav ul {
-  list-style: none; /* Removes bullet points from the list */
-  display: flex; /* Displays navbar items in a row */
-  justify-content: left; /* Aligns the navbar items to the left */
-  margin: 0; /* Removes default margin */
-  padding: 0; /* Removes default padding */
+  list-style: none;
+  display: flex;
+  justify-content: right;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li {
-  margin-right: 20px; /* Adds space between the navbar items */
+  margin-right: 150px;
+  cursor: pointer;
+  font-size: 25px;
 }
 
 nav ul li a {
-  color: #fff; /* White text color for links */
-  text-decoration: none; /* Removes underline from links */
-  font-weight: bold; /* Makes font bold */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 nav ul li a:hover {
-  color: #c7c7c7; /* Changes color on hover */
+  color: #c7c7c7;
 }
 
 /* Content section styling */
 main {
-  margin-top: 20px; /* Adds a margin to the top of the main content */
-  padding: 20px; /* Adds padding around the content */
-  background: #fff; /* White background for the content area */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow around the content */
+  padding-top: 60px; /* Adds padding to account for fixed navbar */
 }
 
-h1 {
-  color: #333; /* Dark grey color for headings */
+section {
+  min-height: 100vh; /* Sets minimum height of each section to 100% of the viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

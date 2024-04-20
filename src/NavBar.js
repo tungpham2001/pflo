@@ -1,13 +1,15 @@
-import { Link } from 'react-router-dom';
+import Logo from './images/TP.png';
 
-function Navbar() {
+function Navbar({ scrollToSection }) {
   return (
     <nav>
+      <div className="logo">
+        <img onClick={() => scrollToSection('home')} src={Logo} alt="Logo" />
+      </div>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/works">Works</Link></li>
-        <li><Link to="/blogs">Blogs</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+        <li onClick={() => scrollToSection('works')}>Works</li>
+        <li onClick={() => scrollToSection('blogs')}>Blogs</li>
+        <li onClick={() => scrollToSection('contact')}>Contact</li>
       </ul>
     </nav>
   );

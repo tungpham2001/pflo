@@ -1,37 +1,57 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './NavBar';
+import React, { useRef } from 'react';
+import NavBar from './NavBar';
 import './App.css';
 
+// pages
+import LandingPage from './pages/LandingPage';
+import WorkPage from './pages/WorkPage';
+import BlogPage from './pages/BlogPage';
+import ContactPage from './pages/ContactPage';
+
 function App() {
+  const homeRef = useRef(null);
+  const worksRef = useRef(null);
+  const blogsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollToSection = (section) => {
+    switch (section) {
+      case 'home':
+        homeRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'works':
+        worksRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'blogs':
+        blogsRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'contact':
+        contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
-    <Router>
-      <Navbar />
+    <div>
+      <NavBar scrollToSection={scrollToSection} />
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/works" element={<Works />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <section ref={homeRef}>
+          <LandingPage/>
+        </section>
+        <section ref={worksRef}>
+          <WorkPage/>
+        </section>
+        <section ref={blogsRef}>
+          <BlogPage/>
+        </section>
+        <section ref={contactRef}>
+          <ContactPage/>
+        </section>
       </main>
-    </Router>
+    </div>
   );
-}
-
-function Home() {
-  return <h1>Home Page</h1>;
-}
-
-function Works() {
-  return <h1>Works Page</h1>;
-}
-
-function Blogs() {
-  return <h1>Blogs Page</h1>;
-}
-
-function Contact() {
-  return <h1>Contact Page</h1>;
 }
 
 export default App;
