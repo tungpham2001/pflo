@@ -25,7 +25,7 @@ function LandingPage() {
                     <h1>Software Engineer & Web Developer</h1>
                 </div>
                 <div className="introduction">
-                    <h1>Hi my name is Tung, this section will be filled out later</h1>
+                    <h1>Passionate about innovation and efficient problem-solving, based in Toronto.</h1>
                 </div>
                 <div className="aboutMeContainer">
                     <button>About Me</button>

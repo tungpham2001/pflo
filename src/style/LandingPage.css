@@ -45,52 +45,60 @@
 }
   
 .socialContainer a:hover {
-    color: #007BFF;
+    color: #7395AE;
 }
 
 .leftPortion {
-    color: rgb(255, 255, 255); /* Dark text color for readability */
-    width: 50%; /* Takes up half of the container width */
-    display: flex; /* Uses flexbox for internal layout */
-    flex-direction: column; /* Stacks children vertically */
-    align-items: flex-start; /* Centers children horizontally */
-    justify-content: center; /* Centers children vertically */
-    padding: 100px; /* Padding inside the left portion */
+    color: rgb(255, 255, 255);
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 120px;
+    margin-bottom: 100px;
 }
   
 .rightPortion {
-    color: rgb(255, 255, 255); /* Dark text color to match the left portion */
-    width: 50%; /* Takes up the other half of the container width */
-    display: flex; /* Uses flexbox for internal layout */
-    flex-direction: column; /* Stacks children vertically */
-    align-items: center; /* Centers children horizontally */
-    justify-content: center; /* Centers children vertically */
-    padding: 20px; /* Padding inside the right portion */
+    color: rgb(255, 255, 255);
+    width: 66%;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+    padding: 65px;
   }
 
 .occupation h1 {
-    margin: 20px 0;
+    margin: 10px 0;
     color: #7395AE;
     font-size: 4rem;
 }
+.occupation h1:hover {
+    color: #ffffff;
+    transition: color 0.6s;
+    text-decoration: underline;
+}
 
 .introduction h1 {
-    margin: 20px 0;
-    color: #5D5C61;
+    margin: 40px 0;
+    color: #ffffff;
 }
-  
-/* Button styling in the about me section */
+
 .aboutMeContainer button {
-    background-color: #007BFF; /* Blue background for the button */
-    color: #fff; /* White text on the button */
-    border: none; /* No border */
-    padding: 10px 20px; /* Padding inside the button */
-    font-size: 1rem; /* Regular font size for text */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    background-color: #5D5C61;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Roboto Mono', monospace;
 }
   
 .aboutMeContainer button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #7395AE;
 }
   

@@ -45,23 +45,16 @@ nav ul li {
   font-size: 25px;
 }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
+nav ul li:hover {
+  text-decoration: underline;
+  color: #7395AE;
 }
-
-nav ul li a:hover {
-  color: #c7c7c7;
-}
-
-/* Content section styling */
 main {
-  padding-top: 60px; /* Adds padding to account for fixed navbar */
+  padding-top: 40px;
 }
 
 section {
-  min-height: 100vh; /* Sets minimum height of each section to 100% of the viewport height */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;

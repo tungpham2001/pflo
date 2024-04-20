@@ -1,8 +1,14 @@
 
+import CyberneticTree from './CyberneticTree';
+
 function WorkPage() {
     return (
         <div>
-            <h1>this is gonna be a work page</h1>
+            <div className="workContainer">
+                <div className="digitalTree">
+                    <CyberneticTree/>
+                </div>
+            </div>
         </div>
     );
 }
