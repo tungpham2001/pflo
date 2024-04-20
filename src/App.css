@@ -1,0 +1,48 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif; /* Sets the font for the application */
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4; /* Light grey background */
+}
+
+/* Navbar styling */
+nav {
+  background: #333; /* Dark background for the navbar */
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Padding inside the navbar */
+}
+
+nav ul {
+  list-style: none; /* Removes bullet points from the list */
+  display: flex; /* Displays navbar items in a row */
+  justify-content: left; /* Aligns the navbar items to the left */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+}
+
+nav ul li {
+  margin-right: 20px; /* Adds space between the navbar items */
+}
+
+nav ul li a {
+  color: #fff; /* White text color for links */
+  text-decoration: none; /* Removes underline from links */
+  font-weight: bold; /* Makes font bold */
+}
+
+nav ul li a:hover {
+  color: #c7c7c7; /* Changes color on hover */
+}
+
+/* Content section styling */
+main {
+  margin-top: 20px; /* Adds a margin to the top of the main content */
+  padding: 20px; /* Adds padding around the content */
+  background: #fff; /* White background for the content area */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow around the content */
+}
+
+h1 {
+  color: #333; /* Dark grey color for headings */
+}
