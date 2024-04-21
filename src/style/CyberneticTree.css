@@ -1,0 +1,36 @@
+@keyframes draw {
+    from {
+        stroke-dasharray: 0, 400;
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dasharray: 400, 0;
+        stroke-dashoffset: 400;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+text {
+    animation: fadeIn 3s;
+    position: relative;  /* Make sure position is not 'static' */
+    z-index: 500;  /* Higher z-index to ensure it appears above other elements */
+    cursor: pointer;
+}
+
+image {
+    animation: fadeIn 4s;
+}
+
+text:hover {
+    text-decoration: underline;
+}
+
+path {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: draw 3s forwards;
+}

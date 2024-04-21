@@ -6,6 +6,7 @@ body {
   padding: 0;
   background: #557A95;
   overflow-x: hidden;
+  transition: background-color 0.5s ease;
 }
 
 nav {
@@ -14,10 +15,11 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 1rem;
 }
 
 nav .logo {
@@ -27,8 +29,9 @@ nav .logo {
 }
 
 nav .logo img {
-  height: 200px;
-  margin-left: 50px;
+  height: 65px;
+  margin-left: 100px;
+  margin-top: 10px;
 }
 
 nav ul {

@@ -1,7 +1,34 @@
+import React, { useState } from 'react';
+import "../style/CyberneticTree.css";
+import ProjectBoxRight from './ProjectBoxRight';
+import ProjectBoxLeft from './ProjectBoxLeft';
+
+import TSUTEUNG from '../images/tsuteung.png';
+import TTK from '../images/TTK.png';
+import SFSS from '../images/SFSS.png';
+import LUCIDITY from '../images/Lucidity.png';
+
 function CyberneticTree() {
+    // State to manage which project box is visible
+    const [visibleProject, setVisibleProject] = useState(null);
+
+    // Handler to toggle visibility
+    const toggleProjectBox = (projectName) => {
+        setVisibleProject(visibleProject === projectName ? null : projectName);
+    };
+
+    // Function to get the style for the text based on visibility
+    const getTextStyle = (projectName) => ({
+        cursor: 'pointer',
+        fill: '#7395AE',
+        fillOpacity: visibleProject === projectName ? 0.2 : 1,
+        fontFamily: 'Roboto Mono',
+        fontSize: '22',
+    });
+
     return (
-        <div>
-            <svg width="784" height="910" viewBox="0 0 784 910" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div className="digTree">
+            <svg width="1600" height="910" viewBox="0 0 784 910" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="332.488" y1="849.189" x2="325.488" y2="904.189" stroke="white" stroke-width="3">
                     <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
                     <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
@@ -22,10 +49,7 @@ function CyberneticTree() {
                     <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
                     <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
                 </line>
-                <ellipse cx="325" cy="906" rx="15" ry="4" fill="white">
-                    <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
-                    <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
-                </ellipse>
+                <ellipse cx="325" cy="906" rx="15" ry="4" fill="white"/>
                 <line x1="308.496" y1="826.062" x2="307.496" y2="834.062" stroke="white">
                     <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
                     <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
@@ -42,14 +66,8 @@ function CyberneticTree() {
                     <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
                     <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
                 </line>
-                <ellipse cx="393.5" cy="883.5" rx="9.5" ry="2.5" fill="white">
-                    <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
-                    <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
-                </ellipse>
-                <ellipse cx="309.5" cy="824" rx="7.5" ry="2" fill="white">
-                    <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
-                    <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
-                </ellipse>
+                <ellipse cx="393.5" cy="883.5" rx="9.5" ry="2.5" fill="white"/>
+                <ellipse cx="309.5" cy="824" rx="7.5" ry="2" fill="white"/>
                 <line x1="293.115" y1="801.513" x2="327.115" y2="809.513" stroke="white">
                     <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
                     <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
@@ -70,18 +88,9 @@ function CyberneticTree() {
                     <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
                     <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
                 </line>
-                <ellipse cx="438" cy="876" rx="9" ry="3" fill="white">
-                    <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
-                    <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
-                </ellipse>
-                <ellipse cx="553" cy="873.5" rx="10" ry="3.5" fill="white">
-                    <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
-                    <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
-                </ellipse>
-                <ellipse cx="482.5" cy="900" rx="9.5" ry="3" fill="white">
-                    <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
-                    <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
-                </ellipse>
+                <ellipse cx="438" cy="876" rx="9" ry="3" fill="white"/>
+                <ellipse cx="553" cy="873.5" rx="10" ry="3.5" fill="white"/>
+                <ellipse cx="482.5" cy="900" rx="9.5" ry="3" fill="white"/>
                 <line x1="472.963" y1="866.729" x2="481.963" y2="898.729" stroke="white" stroke-width="2">
                     <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
                     <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
@@ -98,10 +107,7 @@ function CyberneticTree() {
                     <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
                     <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
                 </line>
-                <ellipse cx="366" cy="829" rx="8" ry="2" fill="white">
-                    <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
-                    <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
-                </ellipse>
+                <ellipse cx="366" cy="829" rx="8" ry="2" fill="white"/>
                 <line x1="370.238" y1="830.029" x2="419.238" y2="842.029" stroke="white" stroke-width="2">
                 <animate attributeName="stroke-dasharray" from="0,55" to="55,0" begin="0s" dur="2s" fill="freeze" />
                     <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
@@ -2142,7 +2148,77 @@ function CyberneticTree() {
                     <animate attributeName="stroke-dashoffset" from="55" to="0" begin="0s" dur="2s" fill="freeze" />
                 </line>
                 <ellipse cx="136" cy="877.5" rx="9" ry="4.5" fill="white"/>
+                {/* top left project */}
+                <path d="M376 60C376 73.8071 364.807 85 351 85C337.193 85 326 73.8071 326 60C326 46.1929 337.193 35 351 35C364.807 35 376 46.1929 376 60ZM330.295 60C330.295 71.4351 339.565 80.705 351 80.705C362.435 80.705 371.705 71.4351 371.705 60C371.705 48.5649 362.435 39.295 351 39.295C339.565 39.295 330.295 48.5649 330.295 60Z" fill="#557A95" stroke="white" stroke-width="1" fill-opacity="0.6"/>
+                {/* bottom left project */}
+                <path d="M216 399C216 412.807 204.807 424 191 424C177.193 424 166 412.807 166 399C166 385.193 177.193 374 191 374C204.807 374 216 385.193 216 399ZM170.295 399C170.295 410.435 179.565 419.705 191 419.705C202.435 419.705 211.705 410.435 211.705 399C211.705 387.565 202.435 378.295 191 378.295C179.565 378.295 170.295 387.565 170.295 399Z" fill="#557A95" stroke="white" stroke-width="1" fill-opacity="0.6"/>
+                {/* bottom right project */}
+                <path d="M629 444C629 457.807 617.807 469 604 469C590.193 469 579 457.807 579 444C579 430.193 590.193 419 604 419C617.807 419 629 430.193 629 444ZM583.295 444C583.295 455.435 592.565 464.705 604 464.705C615.435 464.705 624.705 455.435 624.705 444C624.705 432.565 615.435 423.295 604 423.295C592.565 423.295 583.295 432.565 583.295 444Z" fill="#557A95" stroke="white" stroke-width="1" fill-opacity="0.6"/>
+                {/* top right project */}
+                <path d="M648 200C648 213.807 636.807 225 623 225C609.193 225 598 213.807 598 200C598 186.193 609.193 175 623 175C636.807 175 648 186.193 648 200ZM602.295 200C602.295 211.435 611.565 220.705 623 220.705C634.435 220.705 643.705 211.435 643.705 200C643.705 188.565 634.435 179.295 623 179.295C611.565 179.295 602.295 188.565 602.295 200Z" fill="#557A95" stroke="white" stroke-width="1" fill-opacity="0.6"/>
+                <path d="M456 745.5L529 707H751.5" stroke="#7395AE" stroke-width="2"/>
+                {/* view all project */}
+                <path d="M429 793C429 823.376 404.376 848 374 848C343.624 848 319 823.376 319 793C319 762.624 343.624 738 374 738C404.376 738 429 762.624 429 793ZM328.449 793C328.449 818.157 348.843 838.551 374 838.551C399.157 838.551 419.551 818.157 419.551 793C419.551 767.843 399.157 747.449 374 747.449C348.843 747.449 328.449 767.843 328.449 793Z" fill="#557A95" stroke="white" stroke-width="1" fill-opacity="0.6"/>
+                
+                <text x="100" y="670" font-family="Roboto Mono" font-size="22" fill="#7395AE">
+                    <tspan x="525" dy="1.2em">View All Projects</tspan>
+                </text>
+                <text onClick={() => toggleProjectBox('Lucidity')} style={getTextStyle('Lucidity')} x="100" y="50" font-family="Roboto Mono" font-size="22" fill="#7395AE">
+                    <tspan x="380" dy="1.2em">Lucidity</tspan>
+                </text>
+                <text onClick={() => toggleProjectBox('Time to Kill')} style={getTextStyle('Time to Kill')} x="100" y="465" font-family="Roboto Mono" font-size="22" fill="#7395AE">
+                    <tspan x="580" dy="1.2em">Time to Kill</tspan>
+                </text>
+                <text onClick={() => toggleProjectBox('Stress-Free Schedule Support')} style={getTextStyle('Stress-Free Schedule Support')} x="100" y="375" font-family="Roboto Mono" font-size="22" fill="#7395AE">
+                    <tspan x="16" dy="1.2em">Stress-Free</tspan>
+                    <tspan x="16" dy="1.2em">Schedule</tspan>
+                    <tspan x="16" dy="1.2em">Support</tspan>
+                </text>
+                <text onClick={() => toggleProjectBox('tsuteung')} style={getTextStyle('tsuteung')} x="100" y="140" font-family="Roboto Mono" font-size="22" fill="#7395AE">
+                    <tspan x="580" dy="1.2em">tsuteung</tspan>
+                </text>
+
+                {visibleProject === 'tsuteung' && (
+                    <ProjectBoxRight 
+                        x={680}
+                        y={100}
+                        text="tsuteung"
+                        techStacks={['React', 'Node.js', 'HTML', 'CSS', 'JavaScript', 'Bootstrap']}
+                        backgroundImage={TSUTEUNG}
+                    />
+                )}
+
+                {visibleProject === 'Time to Kill' && (
+                    <ProjectBoxRight 
+                        x={630}
+                        y={400}
+                        text="Time to Kill"
+                        techStacks={['Unity', 'C#', 'Docker', 'WebGL']}
+                        backgroundImage={TTK}
+                    />
+                )}
+
+                {visibleProject === 'Lucidity' && (
+                    <ProjectBoxLeft 
+                        x={-280}
+                        y={80}
+                        text="Lucidity"
+                        techStacks={['Unity', 'C#', 'Docker', 'WebGL']}
+                        backgroundImage={LUCIDITY}
+                    />
+                )}
+
+                {visibleProject === 'Stress-Free Schedule Support' && (
+                    <ProjectBoxLeft
+                        x={-240}
+                        y={450}
+                        text="Stress-Free Schedule Support"
+                        techStacks={['Python', 'HTML#', 'CSS', 'JavaScript', 'SQL', 'Docker']}
+                        backgroundImage={SFSS}
+                    />
+                )}
             </svg>
+
         </div>
     )
 }
