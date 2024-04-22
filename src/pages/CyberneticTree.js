@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import "../style/CyberneticTree.css";
 import ProjectBoxRight from './ProjectBoxRight';
 import ProjectBoxLeft from './ProjectBoxLeft';
+import Description from './Description';
+import ScrollList from './ScrollList';
 
 import TSUTEUNG from '../images/tsuteung.png';
 import TTK from '../images/TTK.png';
@@ -15,6 +17,17 @@ function CyberneticTree() {
     // Handler to toggle visibility
     const toggleProjectBox = (projectName) => {
         setVisibleProject(visibleProject === projectName ? null : projectName);
+    };
+
+    const [showProjectsBox, setShowProjectsBox] = useState(false);
+
+    const handleProjectsClick = () => {
+        setShowProjectsBox(!showProjectsBox);
+        setVisibleProject(!visibleProject);
+    };
+
+    const handleCloseClick = () => {
+        setShowProjectsBox(false);
     };
 
     // Function to get the style for the text based on visibility
@@ -2160,7 +2173,7 @@ function CyberneticTree() {
                 {/* view all project */}
                 <path d="M429 793C429 823.376 404.376 848 374 848C343.624 848 319 823.376 319 793C319 762.624 343.624 738 374 738C404.376 738 429 762.624 429 793ZM328.449 793C328.449 818.157 348.843 838.551 374 838.551C399.157 838.551 419.551 818.157 419.551 793C419.551 767.843 399.157 747.449 374 747.449C348.843 747.449 328.449 767.843 328.449 793Z" fill="#557A95" stroke="white" stroke-width="1" fill-opacity="0.6"/>
                 
-                <text x="100" y="670" font-family="Roboto Mono" font-size="22" fill="#7395AE">
+                <text onClick={handleProjectsClick} x="100" y="670" font-family="Roboto Mono" font-size="22" fill="#7395AE">
                     <tspan x="525" dy="1.2em">View All Projects</tspan>
                 </text>
                 <text onClick={() => toggleProjectBox('Lucidity')} style={getTextStyle('Lucidity')} x="100" y="50" font-family="Roboto Mono" font-size="22" fill="#7395AE">
@@ -2213,11 +2226,43 @@ function CyberneticTree() {
                         x={-240}
                         y={450}
                         text="Stress-Free Schedule Support"
-                        techStacks={['Python', 'HTML#', 'CSS', 'JavaScript', 'SQL', 'Docker']}
+                        techStacks={['Python', 'HTML', 'CSS', 'JavaScript', 'SQL', 'Docker']}
                         backgroundImage={SFSS}
                     />
                 )}
             </svg>
+            {showProjectsBox && (
+                <foreignObject x="0" y="0" width="100%" height="100%">
+                    <div className="projectList" style={{ 
+                        display: 'flex',
+                        flexDirection: 'row',
+                        position: 'fixed',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: "90vw", height: '80%',
+                        overflowY: 'auto',
+                        background: 'white',
+                        border: '1px solid black',
+                        padding: '20px',
+                        boxSizing: 'border-box',
+                        borderRadius: '10px',
+                        backgroundColor: '#5D5C61'
+                    }}>
+                        
+                        <div className="closeButton" style={{ position: 'absolute', top: 10, left: 10, cursor: 'pointer' }}>
+                            <button onClick={handleCloseClick}>X</button>
+                        </div>
+                        
+                        <div className="displayScreen" style={{ flex: '0 0 65%', overflowY: 'auto', backgroundColor: '#85838D', margin: '20px', borderRadius: '10px'}}>
+                            <Description/>
+                        </div>
+                        <div className="scrollList" style={{ flex: '0 0 30%', overflowY: 'auto', backgroundColor: '#85838D', margin: '20px', borderRadius: '10px'}}>
+                            <ScrollList/>
+                        </div>
+                    </div>
+                </foreignObject>
+            )}
 
         </div>
     )
