@@ -14,6 +14,8 @@ function CyberneticTree() {
     // State to manage which project box is visible
     const [visibleProject, setVisibleProject] = useState(null);
 
+    const [selectedProject, setSelectedProject] = useState(null);
+
     // Handler to toggle visibility
     const toggleProjectBox = (projectName) => {
         setVisibleProject(visibleProject === projectName ? null : projectName);
@@ -24,10 +26,12 @@ function CyberneticTree() {
     const handleProjectsClick = () => {
         setShowProjectsBox(!showProjectsBox);
         setVisibleProject(!visibleProject);
+        document.body.style.overflow = !showProjectsBox ? 'hidden' : 'auto';
     };
 
     const handleCloseClick = () => {
         setShowProjectsBox(false);
+        document.body.style.overflow = 'auto';
     };
 
     // Function to get the style for the text based on visibility
@@ -2255,10 +2259,10 @@ function CyberneticTree() {
                         </div>
                         
                         <div className="displayScreen" style={{ flex: '0 0 65%', overflowY: 'auto', backgroundColor: '#85838D', margin: '20px', borderRadius: '10px'}}>
-                            <Description/>
+                            <Description PROJECTS={selectedProject}/>
                         </div>
                         <div className="scrollList" style={{ flex: '0 0 30%', overflowY: 'auto', backgroundColor: '#85838D', margin: '20px', borderRadius: '10px'}}>
-                            <ScrollList/>
+                            <ScrollList setSelectedProject={setSelectedProject}/>
                         </div>
                     </div>
                 </foreignObject>
