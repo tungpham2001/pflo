@@ -4,6 +4,7 @@ import RECIPE from "../images/Recipe.png";
 import GALLERY from "../images/Gallery.png";
 
 import RecentSong from "./RecentSong";
+import Spotify from "./Spotify";
 
 function BlogPage() {
     const [selectedOption, setSelectedOption] = useState('music');
@@ -13,9 +14,9 @@ function BlogPage() {
             case 'music':
                 return <RecentSong/>;
             case 'cookbook':
-                return <h2>Cookbook Content</h2>;
+                return <Spotify/>;
             case 'photo':
-                return <h2>Photo Gallery Content</h2>;
+                return <h2>photo content</h2>;
             default:
                 return <h2>Select an option</h2>;
         }
@@ -36,7 +37,7 @@ function BlogPage() {
                     </li>
                 </ul>
             </div>
-            <div className="option-content" style={{ flex: 1, overflowY: 'auto', height: '80vh', background: '#f4f4f4', margin: "20px 100px 0 100px" }}>
+            <div className="option-content" style={{ flex: 1, overflowY: 'auto', height: '80vh', margin: "20px 100px 0 100px" }}>
                 {renderContent()}
             </div>
         </div>

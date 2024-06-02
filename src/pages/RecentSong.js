@@ -4,52 +4,50 @@ import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
     subheading: {
-        marginBottom: 3,
+        display: 'flex',
+        justifyContent: 'center',
+        marginBottom: '3vh',
         fontSize: '14px',
+    },
+
+    songContainer: {
+        display: 'flex',
+        justifyContent: 'center',
     },
 
     recentSong: {
         display: 'flex',
         justifyContent: 'center',
-    },
-
-    artist: {
-        fontSize: 15,
-        margin: '10px 20px',
-        '@media (max-width: 768px)': {
-            fontSize: 24,
-        },
+        marginTop: '10vh',
     },
 
     title: {
         fontSize: 25,
-        margin: '10px 20px',
-        maxWidth: '20vw',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-        '@media (max-width: 768px)': {
-            maxWidth: '50vw',
-        },
         fontWeight: 'bold',
+        margin: '0 0 10px 0',
+        textAlign: 'center',
     },
 
     recentSongLink: {
         textDecoration: 'none',
-        color: 'gray',
-        '&:hover': {
-            color: 'cornflowerblue'
+        color: 'white',
+    },
+
+    songInfo: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%'
+    },
+
+    artist: {
+        fontSize: 15,
+        textAlign: 'center',
+        margin: '0',
+        '@media (max-width: 768px)': {
+            fontSize: 24,
         },
-    },
-
-    albumArt: {
-        width: 120,
-        height: 120,
-    },
-
-    smallTest: {
-        fontSize: 12,
-        marginTop: 3,
     },
 });
 
@@ -84,32 +82,32 @@ function RecentSong() {
     }
 
     return (
-        <>
-            
-            <a
-                target="_blank"
-                rel = "noreferrer"
-                className={classes.recentSongLink}
-                href={recentSong.songLink}
-            >
-                <div className={classes.recentSong}>
-                    <img style={{width: '300px', height: '300px'}}
-                        className={classes.albumArt}
-                        src={recentSong.imageSrc}
-                        alt="album art"
-                        loading="lazy"
-                    />
-                </div>
-                <div>
-                    <h1 className={classes.subheading}>Most recently played song:</h1>
-                </div>
-                <div className={classes.songInfo}>
-                    <p className={classes.title}>{recentSong.title}</p>
-                    <h1 className={classes.artist}>{recentSong.artist}</h1>  
-                </div>
-            </a>
-        </>
+            <div className="songContainer">
+                <>
+                    <a
+                        target="_blank"
+                        rel = "noreferrer"
+                        className={classes.recentSongLink}
+                        href={recentSong.songLink}
+                    >
+                        <div className={classes.recentSong}>
+                            <img style={{width: '500px', height: '500px'}}
+                                className={classes.albumArt}
+                                src={recentSong.imageSrc}
+                                alt="album art"
+                                loading="eager"
+                            />
+                        </div>
+                        <div>
+                            <h1 className={classes.subheading}>Most recent song I listened to:</h1>
+                        </div>
+                        <div className={classes.songInfo}>
+                            <p className={classes.title}>{recentSong.title}</p>
+                            <h1 className={classes.artist}>{recentSong.artist}</h1>  
+                        </div>
+                    </a>
+                </>
+            </div>
     );
 }
-
 export default RecentSong;
