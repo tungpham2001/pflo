@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { createUseStyles } from 'react-jss';
 
+import Spotify from "./Spotify";
+
 const useStyles = createUseStyles({
     subheading: {
         display: 'flex',
@@ -82,6 +84,7 @@ function RecentSong() {
     }
 
     return (
+        <div className="masterContainer">
             <div className="songContainer">
                 <>
                     <a
@@ -108,6 +111,10 @@ function RecentSong() {
                     </a>
                 </>
             </div>
+            <div className="albumContainer">
+                <Spotify/>
+            </div>
+        </div>
     );
 }
 export default RecentSong;

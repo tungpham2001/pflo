@@ -53,7 +53,7 @@
 
 //     return (
 //         <div>
-//             <h3 style={{color: "white"}}>Some of my favorite albums:</h3>
+            // <h3 style={{color: "white"}}>Some of my favorite albums:</h3>
 //             {!token ?
 //                 <button onClick={login}>Login to Spotify</button> :
 //                 albums.length > 0 && (
@@ -82,7 +82,7 @@ function SpotifyAlbums() {
     const [token, setToken] = useState(localStorage.getItem('spotify_access_token') || null);
     const [albums, setAlbums] = useState([]);
     const [currentAlbumIndex, setCurrentAlbumIndex] = useState(0);
-    const albumContainerRef = useRef(null);  // Reference to the scrollable container
+    const albumContainerRef = useRef(null);
 
     const handleScroll = (event) => {
         const container = albumContainerRef.current;
@@ -95,9 +95,8 @@ function SpotifyAlbums() {
         }
     };
 
-    // Effect to extract the token from the URL hash
     useEffect(() => {
-        if (token) return; // If there's already a token, no need to extract it
+        if (token) return; // if there's already a token, no need to extract it
 
         const hash = window.location.hash
             .substring(1)
@@ -116,9 +115,9 @@ function SpotifyAlbums() {
             setToken(_token);
             localStorage.setItem('spotify_access_token', _token);
         }
-    }, [token]); // Depend on the token
+    }, [token]);
 
-    // Fetch albums using the Spotify Web API
+    // spotify API for albums
     useEffect(() => {
         if (!token) return;
 
@@ -132,11 +131,11 @@ function SpotifyAlbums() {
             setAlbums(data.items);
         })
         .catch(error => console.error('Error fetching albums:', error));
-    }, [token]); // Depend on the token
+    }, [token]);
 
     const handleLogin = () => {
-        const clientId = '462629295a4a48b5bfc0267fbfe1857f'; // Replace with your client ID
-        const redirectUri = 'http://localhost:3000/'; // Replace with your redirect URI
+        const clientId = '462629295a4a48b5bfc0267fbfe1857f';
+        const redirectUri = 'http://localhost:3000/';
         const scopes = [
             'user-library-read',
         ];
@@ -145,33 +144,23 @@ function SpotifyAlbums() {
 
     return (
         <div>
+            <h3 style={{color: "white", marginLeft: "5vw"}}>Some of my favorite albums:</h3>
             {!token ? (
                 <div>
                     <h2>Login to Spotify to see your albums</h2>
                     <button onClick={handleLogin}>Login to Spotify</button>
                 </div>
             ) : (
-                // <div>
-                //     <h1>Your Spotify Albums</h1>
-                //     {albums.map((album, index) => (
-                //         <div key={index}>
-                //             <img src={album.album.images[0].url} alt={album.album.name} style={{ width: 500, height: 500 }} />
-                //             <div>{album.album.name}</div>
-                //             <div>{album.album.artists[0].name}</div>
-                //         </div>
-                //     ))}
-                // </div>
-                <div ref={albumContainerRef} onScroll={handleScroll} style={{ overflowX: 'auto', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center' }}>
-                        
-                {albums.map((album, index) => (
-                    <div className="albumContainer" key={album.album.id} style={{ width: '100vw', display: 'inline-block', textAlign: 'center', marginRight: "10vw", marginTop: "5vh" }}>
-                        <img src={album.album.images[0].url} alt={album.album.name} style={{ width: '500px', height: '500px' }} />
-                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <h1 style={{color: "white"}}>{album.album.name}</h1>
-                            <p style={{color: "white"}}>{album.album.artists[0].name}</p>
+                <div ref={albumContainerRef} onScroll={handleScroll} style={{ overflowX: 'auto', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center' }}>       
+                    {albums.map((album, index) => (
+                        <div className="albumContainer" key={album.album.id} style={{ width: '100vw', display: 'inline-block', textAlign: 'center', marginLeft: "5vw", marginRight: "2vw", marginTop: "5vh" }}>
+                            <img src={album.album.images[0].url} alt={album.album.name} style={{ width: '500px', height: '500px' }} />
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <h1 style={{color: "white"}}>{album.album.name}</h1>
+                                <p style={{color: "white"}}>{album.album.artists[0].name}</p>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
             </div>
             )}
         </div>
