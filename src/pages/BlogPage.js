@@ -5,6 +5,7 @@ import GALLERY from "../images/Gallery.png";
 
 import RecentSong from "./RecentSong";
 import CookBook from "./CookBook";
+import Photo from './Photo';
 
 function BlogPage() {
     const [selectedOption, setSelectedOption] = useState('music');
@@ -16,7 +17,7 @@ function BlogPage() {
             case 'recipe':
                 return <CookBook/>;
             case 'photo':
-                return <h2>hello</h2>;
+                return <Photo/>;
             default:
                 return <h2>Select an option</h2>;
         }
