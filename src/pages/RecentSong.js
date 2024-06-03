@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { createUseStyles } from 'react-jss';
 
-import Spotify from "./Spotify";
+import SpotifyAlbums from "./SpotifyAlbums";
 
 const useStyles = createUseStyles({
     subheading: {
@@ -114,7 +114,7 @@ function RecentSong() {
                 </>
             </div>
             <div className="albumContainer">
-                <Spotify/>
+                <SpotifyAlbums/>
             </div>
         </div>
     );

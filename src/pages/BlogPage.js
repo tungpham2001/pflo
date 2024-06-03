@@ -16,7 +16,7 @@ function BlogPage() {
             case 'recipe':
                 return <CookBook/>;
             case 'photo':
-                return <h2>photo content</h2>;
+                return <h2>hello</h2>;
             default:
                 return <h2>Select an option</h2>;
         }
