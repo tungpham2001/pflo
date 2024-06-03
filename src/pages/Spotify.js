@@ -135,7 +135,7 @@ function SpotifyAlbums() {
 
     const handleLogin = () => {
         const clientId = '462629295a4a48b5bfc0267fbfe1857f';
-        const redirectUri = 'http://localhost:3000/';
+        const redirectUri = 'https://portfoliov20-tungpham2001s-projects.vercel.app/';
         const scopes = [
             'user-library-read',
         ];
