@@ -10,6 +10,7 @@ const useStyles = createUseStyles({
         justifyContent: 'center',
         marginBottom: '3vh',
         fontSize: '14px',
+        color: "white",
     },
 
     songContainer: {
@@ -20,7 +21,7 @@ const useStyles = createUseStyles({
     recentSong: {
         display: 'flex',
         justifyContent: 'center',
-        marginTop: '10vh',
+        marginTop: '5vh',
     },
 
     title: {
@@ -46,7 +47,7 @@ const useStyles = createUseStyles({
     artist: {
         fontSize: 15,
         textAlign: 'center',
-        margin: '0',
+        marginBottom: '10vh',
         '@media (max-width: 768px)': {
             fontSize: 24,
         },
@@ -85,6 +86,7 @@ function RecentSong() {
 
     return (
         <div className="masterContainer">
+            <h1 className={classes.subheading} style={{marginTop: "3vh"}}>Scroll down to view more!</h1>
             <div className="songContainer">
                 <>
                     <a

@@ -4,6 +4,7 @@ import RECIPE from "../images/Recipe.png";
 import GALLERY from "../images/Gallery.png";
 
 import RecentSong from "./RecentSong";
+import CookBook from "./CookBook";
 
 function BlogPage() {
     const [selectedOption, setSelectedOption] = useState('music');
@@ -12,8 +13,8 @@ function BlogPage() {
         switch(selectedOption) {
             case 'music':
                 return <RecentSong/>;
-            case 'cookbook':
-                return <h2>cookbook content</h2>;
+            case 'recipe':
+                return <CookBook/>;
             case 'photo':
                 return <h2>photo content</h2>;
             default:
@@ -28,7 +29,7 @@ function BlogPage() {
                     <li onClick={() => setSelectedOption('music')}>
                         <img src={MUSIC_LOGO} alt ="music" style={{ filter: 'grayscale(100%)', display: 'block', margin: "auto", width: '40px', height: 'auto', paddingBottom: "45px" }}/>
                     </li>
-                    <li onClick={() => setSelectedOption('cookbook')}>
+                    <li onClick={() => setSelectedOption('recipe')}>
                         <img src={RECIPE} alt="recipe" style={{ filter: 'grayscale(100%)', display: 'block', margin: "auto", width: '40px', height: 'auto', paddingBottom: "45px" }}/>
                     </li>
                     <li onClick={() => setSelectedOption('photo')}>

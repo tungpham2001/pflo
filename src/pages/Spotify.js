@@ -147,7 +147,7 @@ function SpotifyAlbums() {
             <h3 style={{color: "white", marginLeft: "5vw"}}>Some of my favorite albums:</h3>
             {!token ? (
                 <div>
-                    <h2>Login to Spotify to see your albums</h2>
+                    <h2>Login to Spotify to see your albums (currently required login, working on it...)</h2>
                     <button onClick={handleLogin}>Login to Spotify</button>
                 </div>
             ) : (
